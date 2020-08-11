@@ -1,12 +1,13 @@
 import React from 'react';
 import './BoxColor.css';
 
-
 function BoxColor(props) {
   const divStyle = {
     backgroundColor: 'rgb(' + props.r + ',' + props.g + ',' + props.b + ')',
     mixBlendMode: 'difference',
   };
+
+  //const textColor = r + g +b > (255 * 3)/ 2 ? 'black': 'white'
   return (
     <div className="boxColor" style={divStyle}>
       <h2>

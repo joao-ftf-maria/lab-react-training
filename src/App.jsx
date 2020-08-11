@@ -7,46 +7,43 @@ import BoxColor from './components/BoxColor';
 import CreditCard from './components/CreditCard';
 import Rating from './components/Rating';
 import DriverCard from './components/DriverCard';
-
-
-
+import LikeButton from './components/LikeButton';
+import ClickablePicture from './components/ClickablePicture';
+import Dice from './components/Dice';
+import Carousel from './components/Carousel';
 
 function App() {
-  
-return ( 
-   <div className="App">
-   <h1>IdCard</h1>
-  <IdCard
-  lastName='Doe'
-  firstName='John'
-  gender='male'
-  height= '1.78m'
-  birth= {new Date('7, 14, 1992')}
-  picture='https://randomuser.me/api/portraits/men/44.jpg'
-  />,
-   
- <IdCard
-    lastName= 'Delores'
-    firstName= 'Obrien'
-    gender= 'female'
-    height= '1.72m'
-    birth= {new Date('5, 11, 1993')}
-    picture= 'https://randomuser.me/api/portraits/women/8.jpg'
-    />
-<h1>Greetings</h1>
-  <Greetings language="de">Ludwig</Greetings>
-  <Greetings language="fr">François</Greetings>
-  <h1>Random</h1>
-  <Random min={1} max={6} />
+  return (
+    <div className="App">
+      <h1>IdCard</h1>
+      <IdCard
+        lastName="Doe"
+        firstName="John"
+        gender="male"
+        height={178}
+        birth={new Date('7, 14, 1992')}
+        picture="https://randomuser.me/api/portraits/men/44.jpg"
+      />
+      ,
+      <IdCard
+        lastName="Delores"
+        firstName="Obrien"
+        gender="female"
+        height={172}
+        birth={new Date('5, 11, 1993')}
+        picture="https://randomuser.me/api/portraits/women/8.jpg"
+      />
+      <h1>Greetings</h1>
+      <Greetings language="de">Ludwig</Greetings>
+      <Greetings language="fr">François</Greetings>
+      <h1>Random</h1>
+      <Random min={1} max={6} />
       <Random min={25} max={50} />
       <Random min={1} max={100} />
-
       <h1>BoxColor</h1>
       <BoxColor r={255} g={0} b={0} />
       <BoxColor r={128} g={255} b={0} />
-      
       <h1>CreditCard</h1>
-
       <div className="container">
         <CreditCard
           type="Visa"
@@ -78,8 +75,7 @@ return (
           bgColor="#ddbb55"
           color="white"
         />
-      </div> 
-
+      </div>
       <h1>Rating</h1>
       <Rating>0</Rating>
       <Rating>1.49</Rating>
@@ -87,9 +83,7 @@ return (
       <Rating>3</Rating>
       <Rating>4</Rating>
       <Rating>5</Rating>
-
       <h1>DriverCard</h1>
-
       <div className="containerColumn">
         <DriverCard
           name="Travis Kalanick"
@@ -109,14 +103,26 @@ return (
             licensePlate: 'BE33ER',
           }}
         />
+        <h1>Like Button</h1>
+        <LikeButton /> <LikeButton />
+        <h1> Clickable Picture</h1>
+        <ClickablePicture
+          img="/img/persons/maxence.png"
+          imgClicked="/img/persons/maxence-glasses.png"
+        />
       </div>
-      
+      <h1>Clickable Picture</h1>
+      <Dice />
+      <h1>Carousel</h1>
+      <Carousel
+        imgs={[
+          'https://randomuser.me/api/portraits/women/1.jpg',
+          'https://randomuser.me/api/portraits/men/1.jpg',
+          'https://randomuser.me/api/portraits/women/2.jpg',
+          'https://randomuser.me/api/portraits/men/2.jpg',
+        ]}
+      />
     </div>
-
-    
- 
-
-     
   );
 }
 

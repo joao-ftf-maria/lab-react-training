@@ -20,7 +20,7 @@ const IdCard = ({firstName, lastName, gender, height, birth, picture}) => {
             <b>Gender:</b> {gender}
           </li>
           <li>
-            <b>Height:</b> {height}
+            <b>Height:</b> {height / 100}m
           </li>
           <li>
             <b>Birth:</b> {birth.toString().slice(0, 15)}
