@@ -1,11 +1,10 @@
 import React from 'react';
 import './IdCard.css';
 
-
-const IdCard = ({firstName, lastName, gender, height, birth, picture}) => {
+const IdCard = ({ firstName, lastName, gender, height, birth, picture }) => {
   return (
     <div className="id-card">
-      <div className="card-img">
+      <div className="card-img" key={lastName}>
         <img src={picture} alt="avatar" />
       </div>
       <div className="card-data">

@@ -1,18 +1,22 @@
 .id-card {
-    display: flex;
-    margin: 15px;
-    padding: 5px;
-    border: 1px solid black;
-  }
-  
-  .card-img {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .card-data ul {
-    list-style: none;
-    text-align: left;
-    padding: 0 5px;
-    margin-top: 2px;
-  }
+  display: flex;
+  margin: 15px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.card-img {
+  margin: 0;
+  padding: 0;
+}
+
+.card-img > img {
+  width: 100px;
+}
+
+.card-data ul {
+  list-style: none;
+  text-align: left;
+  padding: 0 5px;
+  margin-top: 2px;
+}
