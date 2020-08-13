@@ -1,78 +1,79 @@
-import React, { Component } from 'react';
-import data from '../data/berlin.json';
+import React, { useState } from 'react';
+import profiles from '../../src/data/berlin.json';
 import './IdCard.css';
 
-class FaceBook extends Component {
-  constructor(props) {
-    super(props);
-    this.uniqueCountries = [...new Set(data.map((person) => person.country))];
-    this.profiles = {
-      profileData: data,
-    };
-    this.state = { countrySelected: undefined };
-  }
+const Facebook = () => {
+  const allProfiles = [...profiles];
+  const countries = [...new Set(allProfiles.map((profile) => profile.country))];
 
-  handleCountrySelected = (country) => {
-    this.setState({
-      countrySelected: country,
-    });
+  const initialState = {
+    countrySelected: false,
   };
 
-  render() {
-    const profileList = this.profiles.profileData.map((person) => (
-      <div
-        className="id-card"
-        key={person.lastName}
-        style={{
-          backgroundColor:
-            this.state.countrySelected === person.country
-              ? 'powderblue'
-              : 'white',
-        }}
-      >
-        <div className="card-img">
-          <img src={person.img} alt="profile" />
-        </div>
-        <div className="card-data">
-          <ul>
-            <li>
-              <b>First Name: </b> {person.firstName}
-            </li>
-            <li>
-              <b>Last Name: </b> {person.lastName}
-            </li>
-            <li>
-              <b>Country: </b> {person.country}
-            </li>
-            <li>
-              <b>Type: </b> {person.isStudent ? 'Student' : 'Teacher'}
-            </li>
-          </ul>
-        </div>
-      </div>
-    ));
+  const [state, setState] = useState(initialState);
 
-    const countriesButtons = this.uniqueCountries.map((country) => (
+  const createButtons = () => {
+    return countries.map((country) => (
       <button
-        className="country-button"
         key={country}
-        onClick={() => this.handleCountrySelected(country)}
         style={{
           backgroundColor:
-            this.state.countrySelected === country ? 'powderblue' : 'white',
+            state.countrySelected === country ? 'lightblue' : 'white',
         }}
+        onClick={() => handleClick(country)}
       >
         {country}
       </button>
     ));
+  };
 
-    return (
-      <section>
-        <div>{countriesButtons}</div>
-        {profileList}
-      </section>
-    );
-  }
-}
+  const listProfiles = () => {
+    return allProfiles.map((profile) => (
+      <div
+        key={profile.lastName}
+        style={{
+          backgroundColor:
+            state.countrySelected === profile.country ? 'lightblue' : 'white',
+        }}
+        className="id-Card"
+      >
+        <div>
+          <img
+            style={{ width: '200px', height: '200px' }}
+            src={profile.img}
+            alt="Profile pic"
+          />
+        </div>
+        <div className="card-data">
+          <ul>
+            <span>First name:</span> {profile.firstName}
+          </ul>
+          <ul>
+            <span>Last name:</span> {profile.lastName}
+          </ul>
+          <ul>
+            <span>Country:</span> {profile.country}
+          </ul>
+          <ul>
+            <span>Type:</span> {profile.isStudent ? 'Student' : 'Teacher'}
+          </ul>
+        </div>
+      </div>
+    ));
+  };
 
-export default FaceBook;
+  const handleClick = (country) => {
+    setState(() => ({
+      countrySelected: country,
+    }));
+  };
+
+  return (
+    <div>
+      <div>{createButtons()}</div>
+      {listProfiles()}
+    </div>
+  );
+};
+
+export default Facebook;
