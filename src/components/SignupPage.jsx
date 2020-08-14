@@ -76,7 +76,7 @@ class SignupPage extends Component {
             className="form-control"
             name="email"
             id="email"
-            area-describedby="emailHelpId"
+            aria-describedby="emailHelpId"
             placeholder="Put your email address"
             onChange={(e) => this.emailOnChange(e)}
           />
@@ -90,7 +90,7 @@ class SignupPage extends Component {
             type="password"
             className="form-control"
             name="password"
-            area-describedby="passHelpId"
+            aria-describedby="passHelpId"
             id="password"
             placeholder="Put yor password"
             onChange={(e) => this.passOnChange(e)}
